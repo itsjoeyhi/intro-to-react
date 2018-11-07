@@ -12,11 +12,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 
     <script type="text/babel">
-       class React extends React.Component {
+
+    
+       class Framework extends React.Component {
+         constructor() {
+         super();
+           this.state = {
+             number: 5
+           }
+         }
+
          render() {
            return (
              <div>
-               <h1>React Features</h1>
+               <h1>Notes: {this.props.title}</h1>
+               <h3>Number of Features: {this.state.number}</h3>
                <ol>
                 <li>JSX</li>
                 <li>Virtual DOM</li>
@@ -28,9 +38,12 @@
            );
          }
        }
- 
+       Framework.defaultProps = {
+         title: "React Features"
+       }
+
        ReactDOM.render(
-         <React/>, document.getElementById('app')
+         <Framework/>, document.getElementById('app')
        );
     </script>
   </body>
